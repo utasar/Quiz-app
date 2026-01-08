@@ -5,14 +5,14 @@ import { createLimiter, apiLimiter } from '../middlewares/rateLimiter';
 
 const router = Router();
 
-// All routes require authentication
-router.use(auth);
+// All routes require authentication and rate limiting
+router.use(apiLimiter, auth);
 
 // Get all quizzes
-router.get('/', apiLimiter, quizController.getQuizzes.bind(quizController));
+router.get('/', quizController.getQuizzes.bind(quizController));
 
 // Get quiz by ID
-router.get('/:id', apiLimiter, quizController.getQuizById.bind(quizController));
+router.get('/:id', quizController.getQuizById.bind(quizController));
 
 // Create quiz (parents and teachers only)
 router.post('/', authorize('parent', 'teacher'), createLimiter, quizController.createQuiz.bind(quizController));
@@ -24,9 +24,9 @@ router.post('/generate/book', authorize('parent', 'teacher'), createLimiter, qui
 router.post('/generate/news', authorize('parent', 'teacher'), createLimiter, quizController.generateFromNews.bind(quizController));
 
 // Update quiz (parents and teachers only)
-router.put('/:id', authorize('parent', 'teacher'), apiLimiter, quizController.updateQuiz.bind(quizController));
+router.put('/:id', authorize('parent', 'teacher'), quizController.updateQuiz.bind(quizController));
 
 // Delete quiz (parents and teachers only)
-router.delete('/:id', authorize('parent', 'teacher'), apiLimiter, quizController.deleteQuiz.bind(quizController));
+router.delete('/:id', authorize('parent', 'teacher'), quizController.deleteQuiz.bind(quizController));
 
 export default router;
