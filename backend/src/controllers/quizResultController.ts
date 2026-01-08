@@ -160,7 +160,7 @@ export class QuizResultController {
 
       const stats = await QuizResult.aggregate([
         {
-          $match: { userId: userId }
+          $match: { userId }
         },
         {
           $group: {

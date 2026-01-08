@@ -40,7 +40,12 @@ export class QuizGenerationService {
 
       const content = response.choices[0].message.content;
       if (content) {
-        return JSON.parse(content);
+        try {
+          return JSON.parse(content);
+        } catch (parseError) {
+          console.error('Error parsing AI response:', parseError);
+          return this.generateMockQuestions(topic, numberOfQuestions);
+        }
       }
       return this.generateMockQuestions(topic, numberOfQuestions);
     } catch (error) {
@@ -78,7 +83,12 @@ export class QuizGenerationService {
 
       const content = response.choices[0].message.content;
       if (content) {
-        return JSON.parse(content);
+        try {
+          return JSON.parse(content);
+        } catch (parseError) {
+          console.error('Error parsing AI response:', parseError);
+          return this.generateMockNewsQuestions(numberOfQuestions);
+        }
       }
       return this.generateMockNewsQuestions(numberOfQuestions);
     } catch (error) {
