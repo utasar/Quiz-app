@@ -63,7 +63,7 @@ function QuizCreate() {
     setError('');
 
     try {
-      const quiz = await quizService.generateFromBook({
+      await quizService.generateFromBook({
         bookLink,
         topic,
         numberOfQuestions: parseInt(numberOfQuestions),
@@ -83,7 +83,7 @@ function QuizCreate() {
     setError('');
 
     try {
-      const quiz = await quizService.generateFromNews(parseInt(numberOfQuestions));
+      await quizService.generateFromNews(parseInt(numberOfQuestions));
       navigate('/quizzes');
     } catch (err: any) {
       setError(err.response?.data?.error || 'Failed to generate quiz from news');

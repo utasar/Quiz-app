@@ -6,7 +6,7 @@ import { QuizResult, UserStats } from '../types';
 import './Profile.css';
 
 function Profile() {
-  const [user, setUser] = useState(authService.getCurrentUser());
+  const [user] = useState(authService.getCurrentUser());
   const [stats, setStats] = useState<UserStats | null>(null);
   const [recentResults, setRecentResults] = useState<QuizResult[]>([]);
   const [loading, setLoading] = useState(true);

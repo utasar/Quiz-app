@@ -6,7 +6,7 @@ import { UserStats } from '../types';
 import './Dashboard.css';
 
 function Dashboard() {
-  const [user, setUser] = useState(authService.getCurrentUser());
+  const [user] = useState(authService.getCurrentUser());
   const [stats, setStats] = useState<UserStats | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { quizService } from '../services/quizService';
 import { resultService } from '../services/resultService';
 import { Quiz, Answer } from '../types';
@@ -7,7 +7,6 @@ import './QuizTake.css';
 
 function QuizTake() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const [quiz, setQuiz] = useState<Quiz | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);

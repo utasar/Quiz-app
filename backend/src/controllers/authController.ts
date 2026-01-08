@@ -34,10 +34,13 @@ export class AuthController {
       await user.save();
 
       // Generate token
+      const jwtSecret = config.jwtSecret as string;
+      const jwtExpiration = config.jwtExpiration as string;
+      // @ts-expect-error - TypeScript version mismatch with jwt types
       const token = jwt.sign(
         { id: user._id, email: user.email, role: user.role },
-        config.jwtSecret,
-        { expiresIn: config.jwtExpiration }
+        jwtSecret,
+        { expiresIn: jwtExpiration }
       );
 
       res.status(201).json({
@@ -78,10 +81,13 @@ export class AuthController {
       }
 
       // Generate token
+      const jwtSecret = config.jwtSecret as string;
+      const jwtExpiration = config.jwtExpiration as string;
+      // @ts-expect-error - TypeScript version mismatch with jwt types
       const token = jwt.sign(
         { id: user._id, email: user.email, role: user.role },
-        config.jwtSecret,
-        { expiresIn: config.jwtExpiration }
+        jwtSecret,
+        { expiresIn: jwtExpiration }
       );
 
       res.json({
