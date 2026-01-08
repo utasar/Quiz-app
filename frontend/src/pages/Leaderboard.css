@@ -1,0 +1,84 @@
+.leaderboard-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.leaderboard-card {
+  overflow-x: auto;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 16px;
+  text-align: left;
+}
+
+.leaderboard-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.leaderboard-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.leaderboard-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.leaderboard-table tbody tr.top-three {
+  background-color: #fff8e1;
+}
+
+.leaderboard-table tbody tr.top-three:hover {
+  background-color: #fff3cd;
+}
+
+.leaderboard-table .rank {
+  font-size: 20px;
+  font-weight: bold;
+  width: 80px;
+  text-align: center;
+}
+
+.leaderboard-table .name {
+  font-weight: 500;
+}
+
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+
+  .leaderboard-table .rank {
+    font-size: 16px;
+    width: 60px;
+  }
+}
