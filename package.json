@@ -1,0 +1,23 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "Comprehensive quiz application for educational, cultural, and competitive purposes",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test": "cd backend && npm test && cd ../frontend && npm test",
+    "start": "cd backend && npm start"
+  },
+  "keywords": ["quiz", "education", "learning", "competitive"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
