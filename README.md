@@ -194,10 +194,6 @@ Get a key from https://platform.openai.com
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-MIT License
-
 ## Support
 
 For issues and questions, please open an issue on GitHub.
